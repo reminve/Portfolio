@@ -1,0 +1,33 @@
+<div class="experience">
+  <h1>Expérience Professionnelle</h1>
+
+  <div class="timeline">
+    @for (job of experience; track job.id) {
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">
+          {{ job.period }}
+        </div>
+        <div class="timeline-content">
+          <h2>{{ job.role }}</h2>
+          <h3>{{ job.company }}</h3>
+          <p class="job-location">
+            <app-svg-icon name="location" [size]="16" color="var(--color-text-light-2)"></app-svg-icon>
+            {{ job.location }}
+          </p>
+          <p class="job-description">{{ job.description }}</p>
+          <ul class="job-achievements">
+            @for (achievement of job.achievements; track achievement) {
+              <li>{{ achievement }}</li>
+            }
+          </ul>
+          <div class="job-tech">
+            @for (tech of job.technologies; track tech) {
+              <span class="tech-tag">{{ tech }}</span>
+            }
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,133 @@
+.experience {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  text-align: center;
+  color: var(--color-heading);
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-heading);
+}
+
+h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: hsla(160, 100%, 37%, 1);
+}
+
+.timeline {
+  position: relative;
+  padding: 2rem 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50px;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background-color: var(--color-border);
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 100px;
+  margin-bottom: 3rem;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 44px;
+  top: 0;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: hsla(160, 100%, 37%, 1);
+  z-index: 1;
+}
+
+.timeline-date {
+  position: absolute;
+  left: 0;
+  top: 20px;
+  width: 85px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: gray;
+}
+
+.timeline-content {
+  background-color: var(--color-background-soft);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.job-location {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  color: gray;
+  font-size: 0.9rem;
+}
+
+.job-description {
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.job-achievements {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.job-achievements li {
+  margin-bottom: 0.5rem;
+}
+
+.job-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.tech-tag {
+  background-color: var(--color-background-mute);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 768px) {
+  .timeline::before {
+    left: 30px;
+  }
+  
+  .timeline-item {
+    padding-left: 60px;
+  }
+  
+  .timeline-dot {
+    left: 24px;
+  }
+  
+  .timeline-date {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+}

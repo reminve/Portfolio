@@ -1,0 +1,76 @@
+<div class="skills">
+  <h1>Mes compétences</h1>
+  
+  <section class="skill-category">
+    <h2>Technologies Frontend</h2>
+    <div class="skill-grid">
+      @for (skill of frontendSkills; track skill.name) {
+        <div class="skill-item">
+          <div class="skill-icon">
+            <app-svg-icon [name]="skill.iconName" [size]="30" color="hsla(160, 100%, 37%, 1)"></app-svg-icon>
+          </div>
+          <div class="skill-info">
+            <h3>{{ skill.name }}</h3>
+            <div class="progress-bar">
+              <div class="progress" [style.width.%]="skill.level"></div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </section>
+  
+  <section class="skill-category">
+    <h2>Technologies Backend</h2>
+    <div class="skill-grid">
+      @for (skill of backendSkills; track skill.name) {
+        <div class="skill-item">
+          <div class="skill-icon">
+            <app-svg-icon [name]="skill.iconName" [size]="30" color="hsla(160, 100%, 37%, 1)"></app-svg-icon>
+          </div>
+          <div class="skill-info">
+            <h3>{{ skill.name }}</h3>
+            <div class="progress-bar">
+              <div class="progress" [style.width.%]="skill.level"></div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </section>
+  
+  <section class="skill-category">
+    <h2>Outils et méthodes</h2>
+    <div class="skill-grid">
+      @for (skill of toolsSkills; track skill.name) {
+        <div class="skill-item">
+          <div class="skill-icon">
+            <app-svg-icon [name]="skill.iconName" [size]="30" color="hsla(160, 100%, 37%, 1)"></app-svg-icon>
+          </div>
+          <div class="skill-info">
+            <h3>{{ skill.name }}</h3>
+            <div class="progress-bar">
+              <div class="progress" [style.width.%]="skill.level"></div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </section>
+  
+  <section class="certifications">
+    <h2>Certifications</h2>
+    <div class="cert-grid">
+      @for (cert of certifications; track cert.name) {
+        <div class="cert-item">
+          <div class="cert-logo"><i [class]="cert.icon"></i></div>
+          <div class="cert-content">
+            <h3>{{ cert.name }}</h3>
+            <p class="cert-issuer">{{ cert.issuer }}</p>
+            <p class="cert-date">{{ cert.date }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </section>
+</div>

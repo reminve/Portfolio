@@ -1,0 +1,69 @@
+<section class="hero">
+  <div class="hero-content">
+    <h1>Bonjour, je suis <span class="name">Rémi Neveu</span></h1>
+    <h2>Développeur Web Full Stack</h2>
+    <p>Je développe une solution web pour une grande entreprise</p>
+    <div class="cta-buttons">
+      <a routerLink="/projects" class="btn primary">Voir mes projets</a>
+      <a routerLink="/contact" class="btn secondary">Me contacter</a>
+      <a [href]="'/CV_Remi_Neveu.pdf'" download="CV_Remi_Neveu.pdf" class="btn secondary">
+        <app-svg-icon name="download" [size]="16" color="currentColor" class="download-icon"></app-svg-icon>
+        Télécharger mon CV
+      </a>
+    </div>
+  </div>
+  <div class="hero-image">
+    <div class="profile-placeholder">
+      <img src="assets/me.webp" alt="Rémi Neveu" class="profile-image">
+    </div>
+  </div>
+</section>
+
+<section class="featured">
+  <h2>Mes compétences clés</h2>
+  <div class="skill-cards">
+    <div class="skill-card">
+      <div class="skill-icon-container">
+        <app-svg-icon name="code" [size]="40" color="hsla(160, 100%, 37%, 1)"></app-svg-icon>
+      </div>
+      <h3>Développement Frontend</h3>
+      <p>Angular, JavaScript, Vue.js</p>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon-container">
+        <app-svg-icon name="server" [size]="40" color="hsla(160, 100%, 37%, 1)"></app-svg-icon>
+      </div>
+      <h3>Développement Backend</h3>
+      <p>C#, Java, Ruby</p>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon-container">
+        <app-svg-icon name="database" [size]="40" color="hsla(160, 100%, 37%, 1)"></app-svg-icon>
+      </div>
+      <h3>Bases de données</h3>
+      <p>PostgreSQL, SQL Server, MongoDB</p>
+    </div>
+  </div>
+</section>
+
+<section class="recent-projects">
+  <h2>Projets récents</h2>
+  <div class="project-cards">
+    <div class="project-card">
+      <div class="project-image">
+        <img [src]="getImageUrl('logo_dekal.jpg')" alt="Dekal" class="project-img">
+      </div>
+      <h3>Dekal</h3>
+      <p>Portage du jeu de société Dekal.</p>
+      <a routerLink="/projects" class="btn small">En savoir plus</a>
+    </div>
+    <div class="project-card">
+      <div class="project-image">
+        <img [src]="getImageUrl('logo_dekal_duel.png')" alt="Dekal Mobile" class="project-img">
+      </div>
+      <h3>Dekal Mobile</h3>
+      <p>Portage du jeu de société Dekal pour faire des 1vs1 sur mobile.</p>
+      <a routerLink="/projects" class="btn small">En savoir plus</a>
+    </div>
+  </div>
+</section>

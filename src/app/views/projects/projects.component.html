@@ -1,0 +1,138 @@
+<div class="projects">
+  <h1>Mes projets</h1>
+
+  <div class="project-filters">
+    @for (filter of filters; track filter.id) {
+      <button 
+        [class]="'filter-btn' + (activeFilter() === filter.id ? ' active' : '')"
+        (click)="setActiveFilter(filter.id)"
+      >
+        {{ filter.name }}
+      </button>
+    }
+  </div>
+
+  <div class="projects-grid">
+    @for (project of filteredProjects(); track project.id) {
+      <div class="project-card" (click)="openProjectDetails(project)">
+        <div class="project-image" [style.backgroundColor]="project.color || ''">
+          @if (project.img) {
+            <img [src]="getImageUrl(project.img)" [alt]="project.title" class="project-img">
+          } @else if (project.icon) {
+            <i [class]="project.icon"></i>
+          }
+        </div>
+        <div class="project-content">
+          <h2>{{ project.title }}</h2>
+          <div class="project-tags">
+            @for (tag of project.tags; track tag) {
+              <span class="project-tag">{{ tag }}</span>
+            }
+          </div>
+          <p>{{ project.description }}</p>
+          <div class="project-links">
+            @if (project.demoLink) {
+              <a [href]="project.demoLink" target="_blank" rel="noopener noreferrer" class="project-link">
+                <app-svg-icon name="external-link" [size]="14" color="currentColor" class="link-icon"></app-svg-icon> Démo
+              </a>
+            }
+            @if (project.codeLink) {
+              <a [href]="project.codeLink" target="_blank" rel="noopener noreferrer" class="project-link">
+                <app-svg-icon name="github" [size]="14" color="currentColor" class="link-icon"></app-svg-icon> Code
+              </a>
+            }
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+  
+  @if (selectedProject(); as project) {
+    <div class="project-modal" (click)="closeProjectDetails()">
+      <div class="modal-content" (click)="$event.stopPropagation()">
+        <button class="close-btn" (click)="closeProjectDetails()">&times;</button>
+        
+        <div class="modal-header">
+          <div class="modal-image">
+            @if (project.img) {
+              <img [src]="getImageUrl(project.img)" [alt]="project.title" class="modal-img">
+            } @else if (project.icon) {
+              <i [class]="project.icon"></i>
+            }
+          </div>
+          <div class="modal-title">
+            <h2>{{ project.title }}</h2>
+            <div class="project-tags">
+              @for (tag of project.tags; track tag) {
+                <span class="project-tag">{{ tag }}</span>
+              }
+            </div>
+          </div>
+        </div>
+        
+        <div class="modal-body">
+          <div class="modal-section">
+            <h3>Description</h3>
+            <p>{{ project.description }}</p>
+          </div>
+          
+          @if (project.detailedDescription) {
+            <div class="modal-section">
+              <h3>À propos du projet</h3>
+              <p>{{ project.detailedDescription }}</p>
+            </div>
+          }
+          
+          @if (project.features && project.features.length > 0) {
+            <div class="modal-section">
+              <h3>Fonctionnalités</h3>
+              <ul class="feature-list">
+                @for (feature of project.features; track feature) {
+                  <li>{{ feature }}</li>
+                }
+              </ul>
+            </div>
+          }
+          
+          @if (project.challenges) {
+            <div class="modal-section">
+              <h3>Défis relevés</h3>
+              <p>{{ project.challenges }}</p>
+            </div>
+          }
+          
+          <div class="modal-section">
+            <h3>Technologies utilisées</h3>
+            <div class="tech-list">
+              @for (tag of project.tags; track tag) {
+                <span class="tech-tag">{{ tag }}</span>
+              }
+            </div>
+            @if (project.techLogos) {
+              <div class="tech-logos">
+                @for (tech of project.techLogos; track tech) {
+                  <img [src]="getTechLogoUrl(tech)" [alt]="tech" class="tech-logo" />
+                }
+              </div>
+            }
+          </div>
+        </div>
+        
+        <div class="modal-footer">
+          <div class="project-links">
+            @if (project.demoLink) {
+              <a [href]="project.demoLink" target="_blank" rel="noopener noreferrer" class="project-link">
+                <app-svg-icon name="external-link" [size]="14" color="currentColor" class="link-icon"></app-svg-icon> Voir la démo
+              </a>
+            }
+            @if (project.codeLink) {
+              <a [href]="project.codeLink" target="_blank" rel="noopener noreferrer" class="project-link">
+                <app-svg-icon name="github" [size]="14" color="currentColor" class="link-icon"></app-svg-icon> Voir le code
+              </a>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+</div>

@@ -1,0 +1,198 @@
+.about {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: var(--color-heading);
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin: 2rem 0 1rem;
+  color: var(--color-heading);
+}
+
+.about-content {
+  display: flex;
+  gap: 3rem;
+  margin: 2rem 0;
+  align-items: flex-start;
+}
+
+.about-text {
+  flex: 2;
+}
+
+.intro {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.about-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.image-container {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: var(--color-background-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.education-section {
+  margin-top: 3rem;
+}
+
+.timeline {
+  position: relative;
+  padding: 1rem 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background-color: var(--color-border);
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -6px;
+  top: 6px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: hsla(160, 100%, 37%, 1);
+}
+
+.timeline-content {
+  background-color: var(--color-background-soft);
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.timeline-content h3 {
+  margin-bottom: 0.5rem;
+}
+
+.timeline-date {
+  font-style: italic;
+  color: gray;
+  margin-bottom: 1rem;
+}
+
+.hobby-section {
+  margin-top: 2rem;
+}
+
+.hobby-content {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.hobby-text {
+  flex: 2;
+}
+
+.hobby-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hobby-thumbnail {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hobby-thumbnail:hover {
+  transform: scale(1.05);
+}
+
+.image-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.close-button {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modal-image {
+  max-width: 100%;
+  max-height: 90vh;
+  display: block;
+  border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column-reverse;
+  }
+  
+  .image-container {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .hobby-content {
+    flex-direction: column;
+  }
+  
+  .hobby-image {
+    margin-top: 1rem;
+  }
+}
