@@ -1,0 +1,37 @@
+@use './base.scss';
+
+#app {
+  max-width: 100%; /* Changé de 1280px à 100% pour utiliser toute la largeur */
+  margin: 0 auto;
+  font-weight: normal;
+  display: flex;
+  flex-direction: column; /* Assure que les éléments s'empilent verticalement */
+  min-height: 100vh; /* Hauteur minimale pour remplir l'écran */
+}
+
+a,
+.green {
+  text-decoration: none;
+  color: hsla(160, 100%, 37%, 1);
+  transition: 0.4s;
+  padding: 3px;
+}
+
+@media (hover: hover) {
+  a:hover {
+    background-color: hsla(160, 100%, 37%, 0.2);
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    display: block; /* Changé de flex à block */
+  }
+
+  #app {
+    padding: 0; /* Retiré le padding */
+    display: flex; /* Garder flex pour la disposition verticale */
+    flex-direction: column; /* Les éléments s'empilent verticalement */
+    width: 100%; /* Assurer que l'app prenne toute la largeur */
+  }
+}
