@@ -36,6 +36,7 @@ export class SkillsComponent {
     { name: 'PostGresSQL', level: 90, iconName: 'database' },
     { name: 'SQL Server', level: 75, iconName: 'database' },
     { name: 'MongoDB', level: 50, iconName: 'database' },
+    { name: 'Symfony', level: 50, iconName: 'server' },
   ];
 
   toolsSkills: Skill[] = [
