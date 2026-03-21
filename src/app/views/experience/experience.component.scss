@@ -20,7 +20,7 @@ h2 {
 h3 {
   font-size: 1.2rem;
   margin-bottom: 1rem;
-  color: hsla(160, 100%, 37%, 1);
+  color: var(--color-accent);
 }
 
 .timeline {
@@ -51,7 +51,7 @@ h3 {
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background-color: hsla(160, 100%, 37%, 1);
+  background-color: var(--color-accent);
   z-index: 1;
 }
 

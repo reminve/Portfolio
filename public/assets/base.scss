@@ -19,10 +19,8 @@
   --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
   --vt-c-text-dark-1: var(--vt-c-white);
   --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
-}
 
-/* semantic color variables for this project */
-:root {
+  /* semantic color variables for this project */
   --color-background: var(--vt-c-white);
   --color-background-soft: var(--vt-c-white-soft);
   --color-background-mute: var(--vt-c-white-mute);
@@ -35,6 +33,17 @@
   --color-text-light-2: var(--vt-c-text-light-2);
 
   --section-gap: 160px;
+
+  /* Accent color system - dynamically set by ThemeService */
+  --accent-h: 160;
+  --accent-s: 100%;
+  --accent-l: 37%;
+
+  /* Computed accent color variations */
+  --color-accent: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 1);
+  --color-accent-alpha-10: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.1);
+  --color-accent-alpha-20: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.2);
+  --color-accent-alpha-80: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.8);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -48,7 +57,39 @@
 
     --color-heading: var(--vt-c-text-dark-1);
     --color-text: var(--vt-c-text-dark-2);
+
+    /* Adjust accent lightness for better dark mode contrast */
+    --accent-l: 45%;
   }
+}
+
+/* Manual theme overrides - applied by ThemeService */
+.theme-light {
+  --color-background: var(--vt-c-white);
+  --color-background-soft: var(--vt-c-white-soft);
+  --color-background-mute: var(--vt-c-white-mute);
+
+  --color-border: var(--vt-c-divider-light-2);
+  --color-border-hover: var(--vt-c-divider-light-1);
+
+  --color-heading: var(--vt-c-text-light-1);
+  --color-text: var(--vt-c-text-light-1);
+
+  --accent-l: 37%;
+}
+
+.theme-dark {
+  --color-background: var(--vt-c-black);
+  --color-background-soft: var(--vt-c-black-soft);
+  --color-background-mute: var(--vt-c-black-mute);
+
+  --color-border: var(--vt-c-divider-dark-2);
+  --color-border-hover: var(--vt-c-divider-dark-1);
+
+  --color-heading: var(--vt-c-text-dark-1);
+  --color-text: var(--vt-c-text-dark-2);
+
+  --accent-l: 45%;
 }
 
 *,

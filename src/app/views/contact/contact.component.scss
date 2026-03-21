@@ -42,12 +42,13 @@ h3 {
 .info-icon {
   width: 50px;
   height: 50px;
-  background-color: hsla(160, 100%, 37%, 0.1);
+  background-color: var(--color-accent-alpha-10);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-right: 1rem;
+  color: var(--color-accent);
 }
 
 .info-content p {
@@ -61,7 +62,7 @@ h3 {
 }
 
 .info-content a:hover {
-  color: hsla(160, 100%, 37%, 1);
+  color: var(--color-accent);
 }
 
 .social-links-contact {
@@ -89,7 +90,7 @@ h3 {
 }
 
 .social-icons a:hover {
-  background-color: hsla(160, 100%, 37%, 1);
+  background-color: var(--color-accent);
   color: white;
 }
 
@@ -126,7 +127,7 @@ h3 {
 }
 
 .submit-btn {
-  background-color: hsla(160, 100%, 37%, 1);
+  background-color: var(--color-accent);
   color: white;
   border: none;
   padding: 0.8rem 2rem;
@@ -138,7 +139,7 @@ h3 {
 }
 
 .submit-btn:hover {
-  background-color: hsla(160, 100%, 37%, 0.8);
+  background-color: var(--color-accent-alpha-80);
 }
 
 .submit-btn:disabled {
