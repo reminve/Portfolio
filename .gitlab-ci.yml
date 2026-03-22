@@ -1,0 +1,27 @@
+image: node:18-alpine
+
+stages:
+  - build
+  - deploy
+
+build_angular:
+  stage: build
+  script:
+    - npm ci
+    - npm run build -- --base-href ./
+  artifacts:
+    paths:
+      - dist/angular-portfolio/browser/
+    expire_in: 1 hour
+
+pages:
+  stage: deploy
+  dependencies:
+    - build_angular
+  script:
+    - mv dist/angular-portfolio/browser public/
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
