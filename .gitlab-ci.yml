@@ -1,21 +1,51 @@
 image: node:20-alpine
 
 stages:
+  - build
   - 📦push
+  - 🚀deploy
+
+build_angular:
+  stage: build
+  script:
+    - rm -f package-lock.json
+    - npm i
+    - npm run build -- --base-href ./
+  artifacts:
+    paths:
+      - dist/angular-portfolio/browser/
+    expire_in: 1 hour
 
 include:
   - project: 'IUT_INF63/generic-ci'
     ref: 'main'
     file:
       - 'build/.docker-build.yml'
+      - 'deploy/.docker-deploy.yml'
 
 push-portfolio-image:
   extends: .build-and-push-docker-image
   stage: 📦push
+  dependencies:
+    - build_angular
   variables:
     DOCKERFILE_RELATIVE_PATH: "Dockerfile"
     DOCKERFILE_CONTEXT_PATH: "."
-    DESTINATION_REGISTRY_IMAGE_NAME: "codefirst.iut.uca.fr/reneveu/portfolio/portfolio"
+    DESTINATION_REGISTRY_IMAGE_NAME: "$CI_REGISTRY_IMAGE/portfolio"
     DESTINATION_REGISTRY_IMAGE_VERSION: "$CI_COMMIT_REF_SLUG"
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+
+deploy-portfolio:
+  extends: .deploy-image
+  stage: 🚀deploy
+  dependencies:
+    - push-portfolio-image
+  variables:
+    CONTAINER_NAME: "portfolio"
+    CONTAINER_IMAGE_PATH: "$CI_REGISTRY_IMAGE/portfolio:$CI_COMMIT_REF_SLUG"
+    NAMESPACE_NAME: "reneveu"
+    NAMESPACE_TOKEN: "$KUBERNETES_USER_TOKEN"
+    CONTAINER_HTTP_PORT: "80"
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
