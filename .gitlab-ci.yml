@@ -1,4 +1,4 @@
-image: node:18-alpine
+image: node:20-alpine
 
 stages:
   - build
@@ -7,7 +7,7 @@ stages:
 build_angular:
   stage: build
   script:
-    - npm ci
+    - npm i
     - npm run build -- --base-href ./
   artifacts:
     paths:
