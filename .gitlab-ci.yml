@@ -20,7 +20,9 @@ pages:
   dependencies:
     - build_angular
   script:
-    - mv dist/angular-portfolio/browser public/
+    - rm -rf public
+    - mv dist/angular-portfolio/browser public
+    - cp public/index.html public/404.html
   artifacts:
     paths:
       - public
