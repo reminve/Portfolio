@@ -126,6 +126,17 @@ h3 {
   resize: vertical;
 }
 
+.invalid-field {
+  border-color: #e74c3c !important;
+}
+
+.error-text {
+  color: #e74c3c;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  display: block;
+}
+
 .submit-btn {
   background-color: var(--color-accent);
   color: white;

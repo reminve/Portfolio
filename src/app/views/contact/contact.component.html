@@ -53,7 +53,7 @@
 
     <div class="contact-form">
       <h2>Envoyez-moi un message</h2>
-      <form (ngSubmit)="submitForm()" #contactForm>
+      <form (ngSubmit)="contactForm.valid && submitForm()" #contactForm="ngForm" #formElement>
         <div class="form-group">
           <label for="name">Nom</label>
           <input 
@@ -63,7 +63,12 @@
             [(ngModel)]="formData.name" 
             required 
             placeholder="Votre nom"
+            #nameField="ngModel"
+            [class.invalid-field]="nameField.invalid && nameField.touched"
           >
+          @if (nameField.invalid && nameField.touched) {
+            <span class="error-text">Le nom est requis.</span>
+          }
         </div>
 
         <div class="form-group">
@@ -74,8 +79,20 @@
             name="user_email"
             [(ngModel)]="formData.email" 
             required 
+            pattern="^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$"
             placeholder="Votre email"
+            #emailField="ngModel"
+            [class.invalid-field]="emailField.invalid && emailField.touched"
           >
+          @if (emailField.invalid && emailField.touched) {
+            <div class="error-text">
+              @if (emailField.errors?.['required']) {
+                L'email est requis.
+              } @else if (emailField.errors?.['pattern']) {
+                L'adresse email n'est pas valide (ex: nom@domaine.com).
+              }
+            </div>
+          }
         </div>
 
         <div class="form-group">
@@ -87,7 +104,12 @@
             [(ngModel)]="formData.subject" 
             required 
             placeholder="Sujet de votre message"
+            #subjectField="ngModel"
+            [class.invalid-field]="subjectField.invalid && subjectField.touched"
           >
+          @if (subjectField.invalid && subjectField.touched) {
+            <span class="error-text">Le sujet est requis.</span>
+          }
         </div>
 
         <div class="form-group">
@@ -99,10 +121,15 @@
             rows="5" 
             required 
             placeholder="Votre message"
+            #messageField="ngModel"
+            [class.invalid-field]="messageField.invalid && messageField.touched"
           ></textarea>
+          @if (messageField.invalid && messageField.touched) {
+            <span class="error-text">Le message est requis.</span>
+          }
         </div>
 
-        <button type="submit" class="submit-btn" [disabled]="submitting()">
+        <button type="submit" class="submit-btn" [disabled]="submitting() || contactForm.invalid">
           {{ submitting() ? 'Envoi en cours...' : 'Envoyer' }}
         </button>
 

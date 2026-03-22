@@ -1,6 +1,6 @@
 import { Component, ElementRef, ViewChild, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import emailjs from '@emailjs/browser';
 import { SvgIconComponent } from '../../components/svg-icon.component';
 
@@ -12,7 +12,8 @@ import { SvgIconComponent } from '../../components/svg-icon.component';
   styleUrl: './contact.component.scss'
 })
 export class ContactComponent {
-  @ViewChild('contactForm') contactForm!: ElementRef<HTMLFormElement>;
+  @ViewChild('contactForm') contactFormDir!: NgForm;
+  @ViewChild('formElement') formElement!: ElementRef<HTMLFormElement>;
 
   // Configuration EmailJS
   private readonly SERVICE_ID = 'service_e69tpoo';
@@ -39,13 +40,14 @@ export class ContactComponent {
       const result = await emailjs.sendForm(
         this.SERVICE_ID,
         this.TEMPLATE_ID,
-        this.contactForm.nativeElement,
+        this.formElement.nativeElement,
         this.PUBLIC_KEY
       );
 
       console.log('Email envoyé avec succès!', result.text);
       
       // Réinitialisation du formulaire
+      this.contactFormDir.resetForm();
       this.formData = {
         name: '',
         email: '',
