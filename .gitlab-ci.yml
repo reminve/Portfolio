@@ -7,6 +7,7 @@ stages:
 build_angular:
   stage: build
   script:
+    - rm -f package-lock.json
     - npm i
     - npm run build -- --base-href ./
   artifacts:
