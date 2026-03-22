@@ -3,6 +3,7 @@ image: node:20-alpine
 stages:
   - build
   - deploy
+  - 📦push
 
 build_angular:
   stage: build
@@ -26,5 +27,23 @@ pages:
   artifacts:
     paths:
       - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+
+include:
+  - project: 'IUT_INF63/generic-ci'
+    ref: 'main'
+    file:
+      - 'build/.docker-build.yml'
+
+push-portfolio-image:
+  extends: .build-and-push-docker-image
+  stage: 📦push
+  variables:
+    DOCKERFILE_RELATIVE_PATH: "Dockerfile"
+    DOCKERFILE_CONTEXT_PATH: "."
+    DESTINATION_REGISTRY_IMAGE_NAME: "$CI_REGISTRY_IMAGE/portfolio"
+    # Version en fonction du commit
+    DESTINATION_REGISTRY_IMAGE_VERSION: "$CI_COMMIT_REF_SLUG"
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
