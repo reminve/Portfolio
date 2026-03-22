@@ -145,12 +145,18 @@
 // Mobile responsive
 @media (max-width: 768px) {
   .theme-dropdown {
-    right: -1rem;
+    right: 0;
     min-width: 200px;
+    top: calc(100% + 1rem);
+  }
+
+  .accent-palette {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.25rem;
   }
 
   .accent-btn {
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
   }
 }

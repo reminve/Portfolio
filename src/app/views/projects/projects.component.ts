@@ -45,7 +45,7 @@ export class ProjectsComponent {
     {
       id: 1,
       title: 'Pulse',
-      description: 'Application de gestions des ses concerts.',
+      description: 'Application de gestion de concerts.',
       detailedDescription: 'Pulse est une application web en cours de développement pour centraliser les concerts en France. Le projet vise à faciliter la recherche d\'évènements musicaux par ville, date et style musical.',
       features: [
         'Recherche de concerts par ville et date',

@@ -12,7 +12,16 @@ import { ThemeService } from './services/theme.service';
 })
 export class App {
   protected readonly currentYear = new Date().getFullYear();
+  isMenuOpen = false;
 
   // Initialize ThemeService early
   private readonly themeService = inject(ThemeService);
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  closeMenu() {
+    this.isMenuOpen = false;
+  }
 }
