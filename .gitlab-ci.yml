@@ -1,9 +1,8 @@
 image: node:20-alpine
 
 stages:
-  - build
-  - deploy
   - 📦push
+  - 🚀deploy
 
 build_angular:
   stage: build
@@ -35,6 +34,10 @@ include:
     ref: 'main'
     file:
       - 'build/.docker-build.yml'
+  - project: 'IUT_INF63/generic-ci'
+    ref: 'main'
+    file:
+      - 'deploy/.kubernetes-deploy.yml'
 
 push-portfolio-image:
   extends: .build-and-push-docker-image
@@ -42,8 +45,18 @@ push-portfolio-image:
   variables:
     DOCKERFILE_RELATIVE_PATH: "Dockerfile"
     DOCKERFILE_CONTEXT_PATH: "."
-    DESTINATION_REGISTRY_IMAGE_NAME: "$CI_REGISTRY_IMAGE/portfolio"
-    # Version en fonction du commit
+    DESTINATION_REGISTRY_IMAGE_NAME: "codefirst.iut.uca.fr/reneveu/portfolio/portfolio"
     DESTINATION_REGISTRY_IMAGE_VERSION: "$CI_COMMIT_REF_SLUG"
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+
+deploy-portfolio:
+  extends: .deploy-container-in-kubernetes
+  stage: 🚀deploy
+  variables:
+    APP_NAME: "portfolio"
+    IMAGE_NAME: "codefirst.iut.uca.fr/reneveu/portfolio/portfolio"
+    IMAGE_VERSION: "$CI_COMMIT_REF_SLUG"
+    CONTAINER_PORT: 80
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
