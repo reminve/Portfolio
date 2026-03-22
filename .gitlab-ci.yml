@@ -26,6 +26,8 @@ include:
 push-portfolio-image:
   extends: .build-and-push-docker-image
   stage: 📦push
+  needs:
+    - build_angular
   dependencies:
     - build_angular
   variables:
@@ -34,12 +36,13 @@ push-portfolio-image:
     DESTINATION_REGISTRY_IMAGE_NAME: "$CI_REGISTRY_IMAGE/portfolio"
     DESTINATION_REGISTRY_IMAGE_VERSION: "$CI_COMMIT_REF_SLUG"
   rules:
-    - if: $CI_COMMIT_BRANCH == "main"
+    - if: '$CI_COMMIT_BRANCH == "main"'
+      when: on_success
 
 deploy-portfolio:
   extends: .deploy-image
   stage: 🚀deploy
-  dependencies:
+  needs:
     - push-portfolio-image
   variables:
     CONTAINER_NAME: "portfolio"
@@ -48,4 +51,5 @@ deploy-portfolio:
     NAMESPACE_TOKEN: "$KUBERNETES_USER_TOKEN"
     CONTAINER_HTTP_PORT: "80"
   rules:
-    - if: $CI_COMMIT_BRANCH == "main"
+    - if: '$CI_COMMIT_BRANCH == "main"'
+      when: on_success
