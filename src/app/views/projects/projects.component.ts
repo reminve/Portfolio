@@ -44,6 +44,24 @@ export class ProjectsComponent {
   projects: Project[] = [
     {
       id: 1,
+      title: 'Pulse',
+      description: 'Application de gestions des ses concerts.',
+      detailedDescription: 'Pulse est une application web en cours de développement pour centraliser les concerts en France. Le projet vise à faciliter la recherche d\'évènements musicaux par ville, date et style musical.',
+      features: [
+        'Recherche de concerts par ville et date',
+        'Filtrage par genres musicaux',
+        'Exploration des concerts à venir en France',
+        'Ajout progressif de fonctionnalités communautaires'
+      ],
+      challenges: 'Le principal enjeu est d\'apporter une expérience utilisateur fluide avec une gestion de live d\'artistes.',
+      tags: ['WIP', 'Angular', 'TypeScript', 'web'],
+      techLogos: ['angular', 'csharp'],
+      img: 'logo_Pulse.png',
+      codeLink: 'https://codefirst.iut.uca.fr/gitlab/IUT_INF63/projets-etudiants/SAE_3A_Pulse/webapp',
+      category: 'web'
+    },
+    {
+      id: 2,
       title: 'Dekal',
       description: 'Portage du jeu de société Dekal.',
       detailedDescription: 'Un projet web complet qui reproduit fidèlement l\'expérience du jeu de société Dekal dans un format numérique. Les joueurs peuvent rejoindre des parties et jouer en ligne contre d\'autres utilisateurs ou des IAs.',
@@ -62,7 +80,7 @@ export class ProjectsComponent {
       category: 'web'
     },
     {
-      id: 2,
+      id: 3,
       title: 'Dekal Mobile',
       description: 'Portage du jeu de société Dekal pour faire des 1vs1 sur mobile.',
       detailedDescription: 'Version mobile du jeu Dekal spécialement optimisée pour les duels 1 contre 1. Cette application native Android permet de jouer au Dekal n\'importe où, même hors ligne.',
@@ -80,7 +98,7 @@ export class ProjectsComponent {
       category: 'mobile'
     },
     {
-      id: 3,
+      id: 4,
       title: 'Trek-12',
       description: 'Portage du jeu de société Trek-12.',
       detailedDescription: 'Adaptation numérique du jeu de société Trek-12, un jeu de dés et de stratégie. Cette application Windows permet de jouer seul sur votre ordinateur.',

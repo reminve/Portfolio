@@ -27,12 +27,13 @@ export class ExperienceComponent {
       role: 'Développeur Full Stack',
       company: 'W3Plus',
       location: 'Creuzier-le-neuf, France',
-      period: 'Sept 2024 - Présent',
+      period: 'Sept. 2024 - Présent',
       description: 'Développement et maintenance d\'une ERP web pour une grande entreprise.',
       achievements: [
         'Apprentissage du langage de programation Angular',
         'Création de nouvelles fonctionnalités pour l\'application',
-        'Prise en main développement de l\'API permettant le bon fonctionnement de l\'application',
+        'Prise en main et développement de l\'API permettant le bon fonctionnement de l\'application',
+        'Analyse de fonctionnalités, maquettage et présentations clients'
       ],
       technologies: ['Angular', 'C#', 'SQL Server']
     },
@@ -41,7 +42,7 @@ export class ExperienceComponent {
       role: 'Stagiaire en développement Full Stack',
       company: 'W3Plus',
       location: 'Creuzier-le-neuf, France',
-      period: 'Jui 2024 - Aou 2024',
+      period: 'Jui. 2024 - Aou. 2024',
       description: 'Prise en main d\'un ERP web pour une grande entreprise.',
       achievements: [
         'Prise en main du langage Angular',
