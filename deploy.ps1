@@ -59,3 +59,4 @@ Write-Host "  1. Remplacez le fichier: public\CV_Remi_Neveu.pdf" -ForegroundColo
 Write-Host "  2. Relancez: .\deploy.ps1" -ForegroundColor White
 Write-Host "`nVotre site sera disponible dans 1-2 minutes sur:" -ForegroundColor Cyan
 Write-Host "https://reminve.github.io/Portfolio/" -ForegroundColor White
+Write-Host "https://codefirst.iut.uca.fr/kubernetes/reneveu/portfolio/" -ForegroundColor White

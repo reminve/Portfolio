@@ -47,6 +47,6 @@ Le portfolio est structuré autour de 6 sections principales :
 ## Lien du portfolio
 
 Version en ligne :
-https://reminve.github.io/Portfolio/
-https://codefirst.iut.uca.fr/kubernetes/reneveu/portfolio/
+- https://reminve.github.io/Portfolio/
+- https://codefirst.iut.uca.fr/kubernetes/reneveu/portfolio/
 
