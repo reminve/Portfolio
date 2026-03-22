@@ -1,59 +1,50 @@
-# AngularPortfolio
+# Portfolio Développeur Web
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.3.
+Portfolio conçu pour présenter mon profil, mes compétences et mes réalisations de façon claire et plaisante pour l'utilisateur.
 
-## Development server
+## Vision du projet
 
-To start a local development server, run:
+Ce portfolio a été pensé comme une vitrine professionnelle :
 
-```bash
-ng serve
-```
+- mettre en avant mes projets de manière concrète
+- valoriser mon parcours, mes compétences et mes expériences
+- faciliter la prise de contact directe
+- proposer une navigation fluide, responsive et accessible
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Ce que contient le site
 
-## Code scaffolding
+Le portfolio est structuré autour de 6 sections principales :
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- Accueil : introduction et positionnement
+- A propos : présentation de mon profil et de ma démarche
+- Compétences : synthèse des technologies et savoir-faire
+- Projets : réalisations sélectionnées
+- Expériences : parcours et mises en situation
+- Contact : formulaire de prise de contact rapide
 
-```bash
-ng generate component component-name
-```
+## Atouts du projet
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+- Expérience utilisateur soignée
+: navigation claire, architecture simple et contenu scannable rapidement.
+- Design personnalisable
+: gestion du thème avec mode clair, sombre ou automatique, et choix de couleur d'accent.
+- Cohésion technique
+: application développée en Angular avec une structure maintenable.
+- Interactivité
+: formulaire de contact intégré pour encourager les échanges avec des potentiels recruteurs.
+- Adaptabilité multi-support
+: interface conçue pour rester confortable sur mobile comme sur desktop.
 
-```bash
-ng generate --help
-```
+## Technologies utilisées
 
-## Building
+- Angular 21
+- TypeScript
+- SCSS
+- Angular Router
+- Signals Angular
+- EmailJS (formulaire de contact)
 
-To build the project run:
+## Lien du portfolio
 
-```bash
-ng build
-```
+Version en ligne : https://reminve.github.io/Portfolio/
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
