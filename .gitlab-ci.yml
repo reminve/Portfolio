@@ -50,6 +50,8 @@ deploy-portfolio:
     NAMESPACE_NAME: "reneveu"
     NAMESPACE_TOKEN: "$KUBERNETES_USER_TOKEN"
     CONTAINER_HTTP_PORT: "80"
+    CONTAINER_RAM: "256M"
+    CONTAINER_CPU: "0.15"
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
       when: on_success
