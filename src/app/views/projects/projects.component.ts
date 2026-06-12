@@ -51,7 +51,8 @@ export class ProjectsComponent {
         'Recherche de concerts par ville et date',
         'Filtrage par genres musicaux',
         'Exploration des concerts à venir en France',
-        'Ajout progressif de fonctionnalités communautaires'
+        'Ajout progressif de fonctionnalités communautaires',
+        'Live d\'artistes avec chat en direct'
       ],
       challenges: 'Le principal enjeu est d\'apporter une expérience utilisateur fluide avec une gestion de live d\'artistes.',
       tags: ['WIP', 'Angular', 'TypeScript', 'web'],
