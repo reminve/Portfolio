@@ -47,6 +47,12 @@ export class SkillsComponent {
 
   certifications: Certification[] = [
     {
+      name: 'TOEIC (C1)',
+      issuer: 'ETS Global',
+      date: 'May 2026',
+      icon: 'fab fa-free-code-camp'
+    },
+    {
       name: 'Cambridge English: Advanced (B2)',
       issuer: 'Cambridge',
       date: 'Avril 2023',
