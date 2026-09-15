@@ -9,8 +9,17 @@
           {{ job.period }}
         </div>
         <div class="timeline-content">
-          <h2>{{ job.role }}</h2>
-          <h3>{{ job.company }}</h3>
+          <div class="job-header">
+            @if (job.logo) {
+              <div class="job-logo-container">
+                <img [src]="getImageUrl(job.logo)" [alt]="job.company" class="job-logo">
+              </div>
+            }
+            <div class="job-header-text">
+              <h2>{{ job.role }}</h2>
+              <h3>{{ job.company }}</h3>
+            </div>
+          </div>
           <p class="job-location">
             <app-svg-icon name="location" [size]="16" color="var(--color-text-light-2)"></app-svg-icon>
             {{ job.location }}

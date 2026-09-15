@@ -6,6 +6,7 @@ interface Experience {
   id: number;
   role: string;
   company: string;
+  logo?: string;
   location: string;
   period: string;
   description: string;
@@ -26,6 +27,7 @@ export class ExperienceComponent {
       id: 1,
       role: 'Stagiaire en développement Full Stack',
       company: 'W3Plus',
+      logo: 'logo_w3p.png',
       location: 'Creuzier-le-neuf, France',
       period: 'Jui. 2024 - Aou. 2024',
       description: 'Prise en main d\'un ERP web pour une grande entreprise.',
@@ -39,6 +41,7 @@ export class ExperienceComponent {
       id: 2,
       role: 'Développeur Full Stack',
       company: 'W3Plus',
+      logo: 'logo_w3p.png',
       location: 'Creuzier-le-neuf, France',
       period: 'Sept. 2024 - Aou. 2026',
       description: 'Développement et maintenance d\'un ERP web pour une grande entreprise.',
@@ -53,4 +56,8 @@ export class ExperienceComponent {
   ];
 
   sortedExperience = [...this.experience].reverse();
+
+  getImageUrl(name: string): string {
+    return `assets/${name}`;
+  }
 }
