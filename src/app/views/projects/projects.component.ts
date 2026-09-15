@@ -55,10 +55,10 @@ export class ProjectsComponent {
         'Live d\'artistes avec chat en direct'
       ],
       challenges: 'Le principal enjeu est d\'apporter une expérience utilisateur fluide avec une gestion de live d\'artistes.',
-      tags: ['WIP', 'Angular', 'TypeScript', 'web'],
-      techLogos: ['angular', 'csharp'],
+      tags: ['Angular', 'TypeScript', 'web'],
+      techLogos: ['angular', 'typescript'],
       img: 'logo_Pulse.png',
-      codeLink: 'https://codefirst.iut.uca.fr/gitlab/IUT_INF63/projets-etudiants/SAE_3A_Pulse/webapp',
+      codeLink: 'https://github.com/PulseSAE/pulse-frontend',
       category: 'web'
     },
     {
@@ -77,7 +77,7 @@ export class ProjectsComponent {
       techLogos: ['php', 'javascript'],
       img: 'logo_dekal.jpg',
       // demoLink: 'https://codefirst.iut.uca.fr/containers/dekal_sae_2a-webapp/user/accueil',
-      codeLink: 'https://codefirst.iut.uca.fr/gitlab/IUT_INF63/migration2025/dekal_sae_2a/applicationDekal',
+      codeLink: 'https://github.com/DekalSAE/applicationDekal',
       category: 'web'
     },
     {
@@ -95,7 +95,7 @@ export class ProjectsComponent {
       tags: ['Kotlin', 'Android', 'Room', 'mobile'],
       techLogos: ['kotlin', 'android', 'sqlite'],
       img: 'logo_dekal_duel.png',
-      codeLink: 'https://codefirst.iut.uca.fr/gitlab/IUT_INF63/migration2025/dekal_sae_2a/androidApp',
+      codeLink: 'https://github.com/DekalSAE/androidApp',
       category: 'mobile'
     },
     {
@@ -113,7 +113,7 @@ export class ProjectsComponent {
       tags: ['C#', 'XAML'],
       techLogos: ['csharp', 'xaml', 'dotnet'],
       img: 'logo_trek12.png',
-      codeLink: 'https://codefirst.iut.uca.fr/gitlab/IUT_INF63/migration2025/Trek_Prod/Trek12_API'
+      //codeLink: 'https://codefirst.iut.uca.fr/gitlab/IUT_INF63/migration2025/Trek_Prod/Trek12_API'
     },
   ];
 
