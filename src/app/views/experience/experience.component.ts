@@ -24,21 +24,6 @@ export class ExperienceComponent {
   experience: Experience[] = [
     {
       id: 1,
-      role: 'Développeur Full Stack',
-      company: 'W3Plus',
-      location: 'Creuzier-le-neuf, France',
-      period: 'Sept. 2024 - Présent',
-      description: 'Développement et maintenance d\'un ERP web pour une grande entreprise.',
-      achievements: [
-        'Apprentissage du langage de programmation Angular',
-        'Création de nouvelles fonctionnalités pour l\'application',
-        'Prise en main et développement de l\'API permettant le bon fonctionnement de l\'application',
-        'Analyse de fonctionnalités, maquettage et présentations clients'
-      ],
-      technologies: ['Angular', 'C#', 'SQL Server']
-    },
-    {
-      id: 2,
       role: 'Stagiaire en développement Full Stack',
       company: 'W3Plus',
       location: 'Creuzier-le-neuf, France',
@@ -49,6 +34,23 @@ export class ExperienceComponent {
         'Prise en main de l\'application'
       ],
       technologies: ['Angular', 'C#', 'SQL Server']
+    },
+    {
+      id: 2,
+      role: 'Développeur Full Stack',
+      company: 'W3Plus',
+      location: 'Creuzier-le-neuf, France',
+      period: 'Sept. 2024 - Aou. 2026',
+      description: 'Développement et maintenance d\'un ERP web pour une grande entreprise.',
+      achievements: [
+        'Apprentissage du langage de programmation Angular',
+        'Création de nouvelles fonctionnalités pour l\'application',
+        'Prise en main et développement de l\'API permettant le bon fonctionnement de l\'application',
+        'Analyse de fonctionnalités, maquettage et présentations clients'
+      ],
+      technologies: ['Angular', 'C#', 'SQL Server']
     }
   ];
+
+  sortedExperience = [...this.experience].reverse();
 }

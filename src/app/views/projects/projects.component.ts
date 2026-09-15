@@ -44,25 +44,41 @@ export class ProjectsComponent {
   projects: Project[] = [
     {
       id: 1,
-      title: 'Pulse',
-      description: 'Application de gestion de concerts.',
-      detailedDescription: 'Pulse est une application web en cours de développement pour centraliser les concerts en France. Le projet vise à faciliter la recherche d\'évènements musicaux par ville, date et style musical.',
+      title: 'Trek-12',
+      description: 'Portage du jeu de société Trek-12.',
+      detailedDescription: 'Adaptation numérique du jeu de société Trek-12, un jeu de dés et de stratégie. Cette application Windows permet de jouer seul sur votre ordinateur.',
       features: [
-        'Recherche de concerts par ville et date',
-        'Filtrage par genres musicaux',
-        'Exploration des concerts à venir en France',
-        'Ajout progressif de fonctionnalités communautaires',
-        'Live d\'artistes avec chat en direct'
+        'Mode solo',
+        'Interface graphique immersive',
+        'Tutoriel intégré pour apprendre les règles',
+        'Système de scores et de leaderboard'
       ],
-      challenges: 'Le principal enjeu est d\'apporter une expérience utilisateur fluide avec une gestion de live d\'artistes.',
-      tags: ['Angular', 'TypeScript', 'web'],
-      techLogos: ['angular', 'typescript'],
-      img: 'logo_Pulse.png',
-      codeLink: 'https://github.com/PulseSAE/pulse-frontend',
-      category: 'web'
+      challenges: 'Prendre en main le XAML en un temps limité dans une équipe de 3 personnes.',
+      tags: ['C#', 'XAML'],
+      techLogos: ['csharp', 'xaml', 'dotnet'],
+      img: 'logo_trek12.png',
+      //codeLink: 'https://codefirst.iut.uca.fr/gitlab/IUT_INF63/migration2025/Trek_Prod/Trek12_API'
     },
     {
       id: 2,
+      title: 'Dekal Mobile',
+      description: 'Portage du jeu de société Dekal pour faire des 1vs1 sur mobile.',
+      detailedDescription: 'Version mobile du jeu Dekal spécialement optimisée pour les duels 1 contre 1. Cette application native Android permet de jouer au Dekal n\'importe où, même hors ligne.',
+      features: [
+        'Mode 1vs1 contre l\'ordinateur ou un autre joueur',
+        'Interface adaptée aux écrans mobiles',
+        'Notifications pour les tours de jeu',
+        'Statistiques de jeu détaillées'
+      ],
+      challenges: 'Adapter l\'expérience de jeu pour les petits écrans tout en conservant toutes les fonctionnalités essentielles a nécessité une refonte complète de l\'interface utilisateur.',
+      tags: ['Kotlin', 'Android', 'Room', 'mobile'],
+      techLogos: ['kotlin', 'android', 'sqlite'],
+      img: 'logo_dekal_duel.png',
+      codeLink: 'https://github.com/DekalSAE/androidApp',
+      category: 'mobile'
+    },
+    {
+      id: 3,
       title: 'Dekal',
       description: 'Portage du jeu de société Dekal.',
       detailedDescription: 'Un projet web complet qui reproduit fidèlement l\'expérience du jeu de société Dekal dans un format numérique. Les joueurs peuvent rejoindre des parties et jouer en ligne contre d\'autres utilisateurs ou des IAs.',
@@ -81,50 +97,34 @@ export class ProjectsComponent {
       category: 'web'
     },
     {
-      id: 3,
-      title: 'Dekal Mobile',
-      description: 'Portage du jeu de société Dekal pour faire des 1vs1 sur mobile.',
-      detailedDescription: 'Version mobile du jeu Dekal spécialement optimisée pour les duels 1 contre 1. Cette application native Android permet de jouer au Dekal n\'importe où, même hors ligne.',
-      features: [
-        'Mode 1vs1 contre l\'ordinateur ou un autre joueur',
-        'Interface adaptée aux écrans mobiles',
-        'Notifications pour les tours de jeu',
-        'Statistiques de jeu détaillées'
-      ],
-      challenges: 'Adapter l\'expérience de jeu pour les petits écrans tout en conservant toutes les fonctionnalités essentielles a nécessité une refonte complète de l\'interface utilisateur.',
-      tags: ['Kotlin', 'Android', 'Room', 'mobile'],
-      techLogos: ['kotlin', 'android', 'sqlite'],
-      img: 'logo_dekal_duel.png',
-      codeLink: 'https://github.com/DekalSAE/androidApp',
-      category: 'mobile'
-    },
-    {
       id: 4,
-      title: 'Trek-12',
-      description: 'Portage du jeu de société Trek-12.',
-      detailedDescription: 'Adaptation numérique du jeu de société Trek-12, un jeu de dés et de stratégie. Cette application Windows permet de jouer seul sur votre ordinateur.',
+      title: 'Pulse',
+      description: 'Application de gestion de concerts.',
+      detailedDescription: 'Pulse est une application web en cours de développement pour centraliser les concerts en France. Le projet vise à faciliter la recherche d\'évènements musicaux par ville, date et style musical.',
       features: [
-        'Mode solo',
-        'Interface graphique immersive',
-        'Tutoriel intégré pour apprendre les règles',
-        'Système de scores et de leaderboard'
+        'Recherche de concerts par ville et date',
+        'Filtrage par genres musicaux',
+        'Exploration des concerts à venir en France',
+        'Ajout progressif de fonctionnalités communautaires',
+        'Live d\'artistes avec chat en direct'
       ],
-      challenges: 'Prendre en main le XAML en un temps limité dans une équipe de 3 personnes.',
-      tags: ['C#', 'XAML'],
-      techLogos: ['csharp', 'xaml', 'dotnet'],
-      img: 'logo_trek12.png',
-      //codeLink: 'https://codefirst.iut.uca.fr/gitlab/IUT_INF63/migration2025/Trek_Prod/Trek12_API'
-    },
+      challenges: 'Le principal enjeu est d\'apporter une expérience utilisateur fluide avec une gestion de live d\'artistes.',
+      tags: ['Angular', 'TypeScript', 'web'],
+      techLogos: ['angular', 'typescript'],
+      img: 'logo_Pulse.png',
+      codeLink: 'https://github.com/PulseSAE/pulse-frontend',
+      category: 'web'
+    }
   ];
 
   filteredProjects = computed(() => {
     const filter = this.activeFilter();
-    if (filter === 'all') {
-      return this.projects;
-    }
-    return this.projects.filter(project => 
-      project.category === filter || project.tags.includes(filter)
-    );
+    const list = filter === 'all'
+      ? this.projects
+      : this.projects.filter(project =>
+          project.category === filter || project.tags.includes(filter)
+        );
+    return [...list].reverse();
   });
 
   getImageUrl(name: string): string {

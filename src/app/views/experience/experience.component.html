@@ -2,7 +2,7 @@
   <h1>Expérience Professionnelle</h1>
 
   <div class="timeline">
-    @for (job of experience; track job.id) {
+    @for (job of sortedExperience; track job.id) {
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-date">
