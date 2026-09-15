@@ -101,6 +101,32 @@ h2 {
   background-color: var(--color-background-soft);
   padding: 1.5rem;
   border-radius: 8px;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.school-logo-container {
+  width: 70px;
+  height: 70px;
+  min-width: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.school-logo {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.timeline-details {
+  flex: 1;
 }
 
 .timeline-content h3 {
@@ -200,5 +226,16 @@ h2 {
   
   .hobby-image {
     margin-top: 1rem;
+  }
+
+  .timeline-content {
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .school-logo-container {
+    width: 55px;
+    height: 55px;
+    min-width: 55px;
   }
 }
