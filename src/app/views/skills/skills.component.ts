@@ -1,19 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Skill } from '../../interfaces/skill';
+import { Certification } from '../../interfaces/certification';
 import { SvgIconComponent } from '../../components/svg-icon.component';
-
-interface Skill {
-  name: string;
-  level: number;
-  iconName: string;
-}
-
-interface Certification {
-  name: string;
-  issuer: string;
-  date: string;
-  icon: string;
-}
 
 @Component({
   selector: 'app-skills',
@@ -30,6 +19,7 @@ export class SkillsComponent {
   ];
 
   backendSkills: Skill[] = [
+    { name: 'Python (Flask)', level: 60, iconName: 'server' },
     { name: 'C#', level: 80, iconName: 'server' },
     { name: 'Java', level: 70, iconName: 'server' },
     { name: 'Ruby', level: 65, iconName: 'server' },

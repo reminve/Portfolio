@@ -17,12 +17,18 @@
             }
             <div class="job-header-text">
               <h2>{{ job.role }}</h2>
-              <h3>{{ job.company }}</h3>
+              <h3>
+                <a [href]="job.company_link" target="_blank" rel="noopener noreferrer">
+                  {{ job.company }}
+                </a>
+              </h3>
             </div>
           </div>
           <p class="job-location">
             <app-svg-icon name="location" [size]="16" color="var(--color-text-light-2)"></app-svg-icon>
-            {{ job.location }}
+            <a [href]="job.map_link" target="_blank" rel="noopener noreferrer">
+              {{ job.location }}
+            </a>
           </p>
           <p class="job-description">{{ job.description }}</p>
           <ul class="job-achievements">

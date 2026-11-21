@@ -1,28 +1,8 @@
 import { Component, computed, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Project } from '../../interfaces/project';
+import { Filter } from '../../interfaces/filter';
 import { SvgIconComponent } from '../../components/svg-icon.component';
-
-interface Project {
-  id: number;
-  title: string;
-  description: string;
-  detailedDescription?: string;
-  features?: string[];
-  challenges?: string;
-  tags: string[];
-  techLogos?: string[];
-  img?: string;
-  icon?: string;
-  color?: string;
-  demoLink?: string;
-  codeLink?: string;
-  category?: string;
-}
-
-interface Filter {
-  id: string;
-  name: string;
-}
 
 @Component({
   selector: 'app-projects',

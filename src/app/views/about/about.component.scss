@@ -127,6 +127,16 @@ h2 {
 
 .timeline-details {
   flex: 1;
+  
+  a {
+    color: inherit;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+
+  a:hover {
+    background-color: inherit;
+  }
 }
 
 .timeline-content h3 {
