@@ -146,8 +146,8 @@ h1 {
 
 .close-btn {
   position: absolute;
-  top: 0.1rem;
-  right: 0.1rem;
+  top: 1rem;
+  right: 1rem;
   background: none;
   border: none;
   font-size: 2rem;
@@ -292,5 +292,10 @@ h1 {
   .modal-content {
     width: 95%;
     max-height: 85vh;
+  }
+
+  .close-btn {
+    top: 0.1rem;
+    right: 0.1rem;
   }
 }
