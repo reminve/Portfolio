@@ -61,8 +61,10 @@ export interface TranslationSchema {
     ORCHESTRA_ALT: string;
     EDUCATION_TITLE: string;
     MASTER_DEGREE: string;
+    MASTER_SCHOOL: string;
     MASTER_DESC: string;
     BUT_DEGREE: string;
+    BUT_SCHOOL: string;
     BUT_DESC: string;
     BAC_DEGREE: string;
     BAC_DESC_1: string;
