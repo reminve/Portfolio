@@ -1,17 +1,21 @@
-import { Component, ElementRef, ViewChild, signal } from '@angular/core';
+import { Component, ElementRef, ViewChild, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
 import emailjs from '@emailjs/browser';
 import { SvgIconComponent } from '../../components/svg-icon.component';
+import { TranslatePipe } from '../../pipes/translate.pipe';
+import { TranslationService } from '../../services/translation.service';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, FormsModule, SvgIconComponent],
+  imports: [CommonModule, FormsModule, SvgIconComponent, TranslatePipe],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss'
 })
 export class ContactComponent {
+  private readonly translationService = inject(TranslationService);
+
   @ViewChild('contactForm') contactFormDir!: NgForm;
   @ViewChild('formElement') formElement!: ElementRef<HTMLFormElement>;
 
@@ -30,7 +34,7 @@ export class ContactComponent {
   submitting = signal(false);
   formSubmitted = signal(false);
   formError = signal(false);
-  errorMessage = signal('Une erreur est survenue. Veuillez réessayer.');
+  errorMessage = signal('');
 
   async submitForm(): Promise<void> {
     this.submitting.set(true);
@@ -63,7 +67,7 @@ export class ContactComponent {
     } catch (error) {
       console.error('Erreur lors de l\'envoi de l\'email:', error);
       this.formError.set(true);
-      this.errorMessage.set("Une erreur est survenue lors de l'envoi de votre message. Veuillez réessayer.");
+      this.errorMessage.set(this.translationService.t('CONTACT.DEFAULT_ERROR_MSG'));
       
       setTimeout(() => {
         this.formError.set(false);

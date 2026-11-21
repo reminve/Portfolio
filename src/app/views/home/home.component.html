@@ -1,14 +1,14 @@
 <section class="hero">
   <div class="hero-content">
-    <h1>Bonjour, je suis <span class="name">Rémi Neveu</span></h1>
-    <h2>Développeur Web Full Stack</h2>
-    <p>Je développe des solutions web pour les entreprises</p>
+    <h1>{{ 'HOME.GREETING' | translate }} <span class="name">{{ 'HOME.NAME' | translate }}</span></h1>
+    <h2>{{ 'HOME.ROLE' | translate }}</h2>
+    <p>{{ 'HOME.TAGLINE' | translate }}</p>
     <div class="cta-buttons">
-      <a routerLink="/projects" class="btn primary">Voir mes projets</a>
-      <a routerLink="/contact" class="btn secondary">Me contacter</a>
+      <a routerLink="/projects" class="btn primary">{{ 'HOME.CTA_PROJECTS' | translate }}</a>
+      <a routerLink="/contact" class="btn secondary">{{ 'HOME.CTA_CONTACT' | translate }}</a>
       <a href="CV_Remi_Neveu.pdf" download="CV_Remi_Neveu.pdf" class="btn secondary">
         <app-svg-icon name="download" [size]="16" color="currentColor" class="download-icon"></app-svg-icon>
-        Télécharger mon CV
+        {{ 'HOME.CTA_CV' | translate }}
       </a>
     </div>
   </div>
@@ -20,58 +20,58 @@
 </section>
 
 <section class="featured">
-  <h2>Mes compétences clés</h2>
+  <h2>{{ 'HOME.KEY_SKILLS_TITLE' | translate }}</h2>
   <div class="skill-cards">
     <div class="skill-card">
       <div class="skill-icon-container">
         <app-svg-icon name="code" [size]="40"></app-svg-icon>
       </div>
-      <h3>Développement Frontend</h3>
+      <h3>{{ 'HOME.FRONTEND_TITLE' | translate }}</h3>
       <p>Angular, JavaScript, Vue.js</p>
     </div>
     <div class="skill-card">
       <div class="skill-icon-container">
         <app-svg-icon name="server" [size]="40"></app-svg-icon>
       </div>
-      <h3>Développement Backend</h3>
+      <h3>{{ 'HOME.BACKEND_TITLE' | translate }}</h3>
       <p>C#, Java, Python (Flask)</p>
     </div>
     <div class="skill-card">
       <div class="skill-icon-container">
         <app-svg-icon name="database" [size]="40"></app-svg-icon>
       </div>
-      <h3>Bases de données</h3>
+      <h3>{{ 'HOME.DATABASE_TITLE' | translate }}</h3>
       <p>PostgreSQL, SQL Server, MongoDB</p>
     </div>
   </div>
 </section>
 
 <section class="recent-projects">
-  <h2>Projets récents</h2>
+  <h2>{{ 'HOME.RECENT_PROJECTS_TITLE' | translate }}</h2>
   <div class="project-cards">
     <div class="project-card">
       <div class="project-image">
         <img [src]="getImageUrl('logo_Pulse.png')" alt="Pulse" class="project-img">
       </div>
       <h3>Pulse</h3>
-      <p>Application de gestion de concerts.</p>
-      <a routerLink="/projects" class="btn small">En savoir plus</a>
+      <p>{{ 'HOME.PROJECT_PULSE_DESC' | translate }}</p>
+      <a routerLink="/projects" class="btn small">{{ 'HOME.LEARN_MORE' | translate }}</a>
     </div>
     <div class="project-card">
       <div class="project-image">
         <img [src]="getImageUrl('logo_dekal.jpg')" alt="Dekal" class="project-img">
       </div>
       <h3>Dekal</h3>
-      <p>Portage du jeu de société Dekal.</p>
-      <a routerLink="/projects" class="btn small">En savoir plus</a>
+      <p>{{ 'HOME.PROJECT_DEKAL_DESC' | translate }}</p>
+      <a routerLink="/projects" class="btn small">{{ 'HOME.LEARN_MORE' | translate }}</a>
     </div>
     <div class="project-card">
       <div class="project-image">
         <img [src]="getImageUrl('logo_dekal_duel.png')" alt="Dekal Mobile" class="project-img">
       </div>
       <h3>Dekal Mobile</h3>
-      <p>Portage du jeu de société Dekal pour faire des 1vs1 sur mobile.</p>
-      <a routerLink="/projects" class="btn small">En savoir plus</a>
+      <p>{{ 'HOME.PROJECT_DEKAL_MOBILE_DESC' | translate }}</p>
+      <a routerLink="/projects" class="btn small">{{ 'HOME.LEARN_MORE' | translate }}</a>
     </div>
   </div>
 </section>

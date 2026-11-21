@@ -1,10 +1,10 @@
 <div class="contact">
-  <h1>Me contacter</h1>
+  <h1>{{ 'CONTACT.PAGE_TITLE' | translate }}</h1>
 
   <div class="contact-container">
     <div class="contact-info">
-      <h2>Restons en contact</h2>
-      <p>N'hésitez pas à me contacter pour discuter d'un projet ou d'une collaboration.</p>
+      <h2>{{ 'CONTACT.STAY_IN_TOUCH' | translate }}</h2>
+      <p>{{ 'CONTACT.SUBTITLE' | translate }}</p>
 
       <div class="info-items">
         <div class="info-item">
@@ -12,7 +12,7 @@
             <app-svg-icon name="envelope" [size]="24"></app-svg-icon>
           </div>
           <div class="info-content">
-            <h3>Email</h3>
+            <h3>{{ 'CONTACT.EMAIL_LABEL' | translate }}</h3>
             <p><a href="mailto:remineveu@ik.me">remineveu&#64;ik.me</a></p>
           </div>
         </div>
@@ -22,14 +22,14 @@
             <app-svg-icon name="location" [size]="24"></app-svg-icon>
           </div>
           <div class="info-content">
-            <h3>Localisation</h3>
-            <p>Clermont-Ferrand, France</p>
+            <h3>{{ 'CONTACT.LOCATION_LABEL' | translate }}</h3>
+            <p>{{ 'CONTACT.LOCATION_VALUE' | translate }}</p>
           </div>
         </div>
       </div>
 
       <div class="social-links-contact">
-        <h3>Mes réseaux sociaux</h3>
+        <h3>{{ 'CONTACT.SOCIAL_NETWORKS' | translate }}</h3>
         <div class="social-icons">
           <a href="https://github.com/reminve" target="_blank" rel="noopener noreferrer">
             <i class="fab fa-github"></i>
@@ -42,27 +42,27 @@
     </div>
 
     <div class="contact-form">
-      <h2>Envoyez-moi un message</h2>
+      <h2>{{ 'CONTACT.SEND_MESSAGE' | translate }}</h2>
       <form (ngSubmit)="contactForm.valid && submitForm()" #contactForm="ngForm" #formElement>
         <div class="form-group">
-          <label for="name">Nom</label>
+          <label for="name">{{ 'CONTACT.FORM_NAME' | translate }}</label>
           <input 
             type="text" 
             id="name" 
             name="user_name"
             [(ngModel)]="formData.name" 
             required 
-            placeholder="Votre nom"
+            [placeholder]="'CONTACT.FORM_NAME_PLACEHOLDER' | translate"
             #nameField="ngModel"
             [class.invalid-field]="nameField.invalid && nameField.touched"
           >
           @if (nameField.invalid && nameField.touched) {
-            <span class="error-text">Le nom est requis.</span>
+            <span class="error-text">{{ 'CONTACT.ERROR_NAME_REQUIRED' | translate }}</span>
           }
         </div>
 
         <div class="form-group">
-          <label for="email">Email</label>
+          <label for="email">{{ 'CONTACT.FORM_EMAIL' | translate }}</label>
           <input 
             type="email" 
             id="email" 
@@ -70,63 +70,63 @@
             [(ngModel)]="formData.email" 
             required 
             pattern="^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$"
-            placeholder="Votre email"
+            [placeholder]="'CONTACT.FORM_EMAIL_PLACEHOLDER' | translate"
             #emailField="ngModel"
             [class.invalid-field]="emailField.invalid && emailField.touched"
           >
           @if (emailField.invalid && emailField.touched) {
             <div class="error-text">
               @if (emailField.errors?.['required']) {
-                L'email est requis.
+                {{ 'CONTACT.ERROR_EMAIL_REQUIRED' | translate }}
               } @else if (emailField.errors?.['pattern']) {
-                L'adresse email n'est pas valide (ex: nom@domaine.com).
+                {{ 'CONTACT.ERROR_EMAIL_INVALID' | translate }}
               }
             </div>
           }
         </div>
 
         <div class="form-group">
-          <label for="subject">Sujet</label>
+          <label for="subject">{{ 'CONTACT.FORM_SUBJECT' | translate }}</label>
           <input 
             type="text" 
             id="subject" 
             name="subject"
             [(ngModel)]="formData.subject" 
             required 
-            placeholder="Sujet de votre message"
+            [placeholder]="'CONTACT.FORM_SUBJECT_PLACEHOLDER' | translate"
             #subjectField="ngModel"
             [class.invalid-field]="subjectField.invalid && subjectField.touched"
           >
           @if (subjectField.invalid && subjectField.touched) {
-            <span class="error-text">Le sujet est requis.</span>
+            <span class="error-text">{{ 'CONTACT.ERROR_SUBJECT_REQUIRED' | translate }}</span>
           }
         </div>
 
         <div class="form-group">
-          <label for="message">Message</label>
+          <label for="message">{{ 'CONTACT.FORM_MESSAGE' | translate }}</label>
           <textarea 
             id="message" 
             name="message"
             [(ngModel)]="formData.message" 
             rows="5" 
             required 
-            placeholder="Votre message"
+            [placeholder]="'CONTACT.FORM_MESSAGE_PLACEHOLDER' | translate"
             #messageField="ngModel"
             [class.invalid-field]="messageField.invalid && messageField.touched"
           ></textarea>
           @if (messageField.invalid && messageField.touched) {
-            <span class="error-text">Le message est requis.</span>
+            <span class="error-text">{{ 'CONTACT.ERROR_MESSAGE_REQUIRED' | translate }}</span>
           }
         </div>
 
         <button type="submit" class="submit-btn" [disabled]="submitting() || contactForm.invalid">
-          {{ submitting() ? 'Envoi en cours...' : 'Envoyer' }}
+          {{ submitting() ? ('CONTACT.SUBMITTING_BTN' | translate) : ('CONTACT.SUBMIT_BTN' | translate) }}
         </button>
 
         @if (formSubmitted()) {
           <div class="form-success">
             <i class="fas fa-check-circle"></i>
-            Message envoyé avec succès !
+            {{ 'CONTACT.SUCCESS_MSG' | translate }}
           </div>
         }
 

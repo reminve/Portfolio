@@ -3,10 +3,12 @@ import { CommonModule } from '@angular/common';
 import { ThemeService } from '../services/theme.service';
 import { ThemeMode, AccentColor } from '../models/theme.model';
 
+import { TranslatePipe } from '../pipes/translate.pipe';
+
 @Component({
   selector: 'app-theme-selector',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslatePipe],
   templateUrl: './theme-selector.component.html',
   styleUrl: './theme-selector.component.scss'
 })

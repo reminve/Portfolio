@@ -1,0 +1,51 @@
+<section 
+  class="language-selector" 
+  (click)="$event.stopPropagation()" 
+  (keydown.escape)="isOpen.set(false)" 
+  [attr.aria-label]="'COMMON.LANGUAGE_SELECTOR' | translate">
+  <button 
+    class="lang-toggle" 
+    (click)="toggleDropdown()" 
+    [attr.aria-label]="'COMMON.LANGUAGE_SELECTOR' | translate" 
+    aria-haspopup="true" 
+    [attr.aria-expanded]="isOpen()">
+    <svg class="globe-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"></circle>
+      <line x1="2" y1="12" x2="22" y2="12"></line>
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+    </svg>
+    <span class="lang-text">{{ translationService.currentLang().toUpperCase() }}</span>
+  </button>
+
+  @if (isOpen()) {
+    <div class="lang-dropdown">
+      <button 
+        type="button"
+        class="lang-option" 
+        [class.active]="translationService.currentLang() === 'fr'"
+        (click)="selectLanguage('fr')">
+        <span class="flag">🇫🇷</span>
+        <span class="label">Français</span>
+        @if (translationService.currentLang() === 'fr') {
+          <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        }
+      </button>
+
+      <button 
+        type="button"
+        class="lang-option" 
+        [class.active]="translationService.currentLang() === 'en'"
+        (click)="selectLanguage('en')">
+        <span class="flag">🇬🇧</span>
+        <span class="label">English</span>
+        @if (translationService.currentLang() === 'en') {
+          <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        }
+      </button>
+    </div>
+  }
+</section>

@@ -1,8 +1,8 @@
 <div class="skills">
-  <h1>Mes compétences</h1>
+  <h1>{{ 'SKILLS.PAGE_TITLE' | translate }}</h1>
   
   <section class="skill-category">
-    <h2>Technologies Frontend</h2>
+    <h2>{{ 'SKILLS.FRONTEND_CATEGORY' | translate }}</h2>
     <div class="skill-grid">
       @for (skill of frontendSkills; track skill.name) {
         <div class="skill-item">
@@ -21,7 +21,7 @@
   </section>
   
   <section class="skill-category">
-    <h2>Technologies Backend</h2>
+    <h2>{{ 'SKILLS.BACKEND_CATEGORY' | translate }}</h2>
     <div class="skill-grid">
       @for (skill of backendSkills; track skill.name) {
         <div class="skill-item">
@@ -40,7 +40,7 @@
   </section>
   
   <section class="skill-category">
-    <h2>Outils et méthodes</h2>
+    <h2>{{ 'SKILLS.TOOLS_CATEGORY' | translate }}</h2>
     <div class="skill-grid">
       @for (skill of toolsSkills; track skill.name) {
         <div class="skill-item">
@@ -59,9 +59,9 @@
   </section>
   
   <section class="certifications">
-    <h2>Certifications</h2>
+    <h2>{{ 'SKILLS.CERTIFICATIONS_CATEGORY' | translate }}</h2>
     <div class="cert-grid">
-      @for (cert of certifications; track cert.name) {
+      @for (cert of certifications(); track cert.name) {
         <div class="cert-item">
           <div class="cert-logo"><i [class]="cert.icon"></i></div>
           <div class="cert-content">

@@ -1,107 +1,97 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Project } from '../../interfaces/project';
 import { Filter } from '../../interfaces/filter';
 import { SvgIconComponent } from '../../components/svg-icon.component';
+import { TranslatePipe } from '../../pipes/translate.pipe';
+import { TranslationService } from '../../services/translation.service';
 
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [CommonModule, SvgIconComponent],
+  imports: [CommonModule, SvgIconComponent, TranslatePipe],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss'
 })
 export class ProjectsComponent {
+  private readonly translationService = inject(TranslationService);
+
   activeFilter = signal<string>('all');
-  selectedProject = signal<Project | null>(null);
+  selectedProjectId = signal<number | null>(null);
 
-  filters: Filter[] = [
-    { id: 'all', name: 'Tous' },
-    { id: 'web', name: 'Web' },
-    { id: 'mobile', name: 'Mobile' },
-  ];
+  filters = computed<Filter[]>(() => [
+    { id: 'all', name: this.translationService.t('PROJECTS.FILTER_ALL') },
+    { id: 'web', name: this.translationService.t('PROJECTS.FILTER_WEB') },
+    { id: 'mobile', name: this.translationService.t('PROJECTS.FILTER_MOBILE') },
+  ]);
 
-  projects: Project[] = [
-    {
-      id: 1,
-      title: 'Trek-12',
-      description: 'Portage du jeu de société Trek-12.',
-      detailedDescription: 'Adaptation numérique du jeu de société Trek-12, un jeu de dés et de stratégie. Cette application Windows permet de jouer seul sur votre ordinateur.',
-      features: [
-        'Mode solo',
-        'Interface graphique immersive',
-        'Tutoriel intégré pour apprendre les règles',
-        'Système de scores et de leaderboard'
-      ],
-      challenges: 'Prendre en main le XAML en un temps limité dans une équipe de 3 personnes.',
-      tags: ['C#', 'XAML'],
-      techLogos: ['csharp', 'xaml', 'dotnet'],
-      img: 'logo_trek12.png',
-      //codeLink: 'https://codefirst.iut.uca.fr/gitlab/IUT_INF63/migration2025/Trek_Prod/Trek12_API'
-    },
-    {
-      id: 2,
-      title: 'Dekal Mobile',
-      description: 'Portage du jeu de société Dekal pour faire des 1vs1 sur mobile.',
-      detailedDescription: 'Version mobile du jeu Dekal spécialement optimisée pour les duels 1 contre 1. Cette application native Android permet de jouer au Dekal n\'importe où, même hors ligne.',
-      features: [
-        'Mode 1vs1 contre l\'ordinateur ou un autre joueur',
-        'Interface adaptée aux écrans mobiles',
-        'Notifications pour les tours de jeu',
-        'Statistiques de jeu détaillées'
-      ],
-      challenges: 'Adapter l\'expérience de jeu pour les petits écrans tout en conservant toutes les fonctionnalités essentielles a nécessité une refonte complète de l\'interface utilisateur.',
-      tags: ['Kotlin', 'Android', 'Room', 'mobile'],
-      techLogos: ['kotlin', 'android', 'sqlite'],
-      img: 'logo_dekal_duel.png',
-      codeLink: 'https://github.com/DekalSAE/androidApp',
-      category: 'mobile'
-    },
-    {
-      id: 3,
-      title: 'Dekal',
-      description: 'Portage du jeu de société Dekal.',
-      detailedDescription: 'Un projet web complet qui reproduit fidèlement l\'expérience du jeu de société Dekal dans un format numérique. Les joueurs peuvent rejoindre des parties et jouer en ligne contre d\'autres utilisateurs ou des IAs.',
-      features: [
-        'Création et gestion de parties',
-        'Interface de jeu interactive',
-        'Système de classement des joueurs',
-        'Intelligence artificielle pour jouer contre l\'ordinateur'
-      ],
-      challenges: 'La principale difficulté était de reproduire les mécaniques complexes du jeu tout en offrant une interface utilisateur intuitive et réactive.',
-      tags: ['PHP', 'JavaScript', 'web'],
-      techLogos: ['php', 'javascript'],
-      img: 'logo_dekal.jpg',
-      // demoLink: 'https://codefirst.iut.uca.fr/containers/dekal_sae_2a-webapp/user/accueil',
-      codeLink: 'https://github.com/DekalSAE/applicationDekal',
-      category: 'web'
-    },
-    {
-      id: 4,
-      title: 'Pulse',
-      description: 'Application de gestion de concerts.',
-      detailedDescription: 'Pulse est une application web en cours de développement pour centraliser les concerts en France. Le projet vise à faciliter la recherche d\'évènements musicaux par ville, date et style musical.',
-      features: [
-        'Recherche de concerts par ville et date',
-        'Filtrage par genres musicaux',
-        'Exploration des concerts à venir en France',
-        'Ajout progressif de fonctionnalités communautaires',
-        'Live d\'artistes avec chat en direct'
-      ],
-      challenges: 'Le principal enjeu est d\'apporter une expérience utilisateur fluide avec une gestion de live d\'artistes.',
-      tags: ['Angular', 'TypeScript', 'web'],
-      techLogos: ['angular', 'typescript'],
-      img: 'logo_Pulse.png',
-      codeLink: 'https://github.com/PulseSAE/pulse-frontend',
-      category: 'web'
-    }
-  ];
+  projects = computed<Project[]>(() => {
+    const t = this.translationService.translationsData().PROJECTS.ITEMS;
+    return [
+      {
+        id: 1,
+        title: t.TREK12.TITLE,
+        description: t.TREK12.DESC,
+        detailedDescription: t.TREK12.DETAILED,
+        features: t.TREK12.FEATURES,
+        challenges: t.TREK12.CHALLENGES,
+        tags: ['C#', 'XAML'],
+        techLogos: ['csharp', 'xaml', 'dotnet'],
+        img: 'logo_trek12.png',
+      },
+      {
+        id: 2,
+        title: t.DEKAL_MOBILE.TITLE,
+        description: t.DEKAL_MOBILE.DESC,
+        detailedDescription: t.DEKAL_MOBILE.DETAILED,
+        features: t.DEKAL_MOBILE.FEATURES,
+        challenges: t.DEKAL_MOBILE.CHALLENGES,
+        tags: ['Kotlin', 'Android', 'Room', 'mobile'],
+        techLogos: ['kotlin', 'android', 'sqlite'],
+        img: 'logo_dekal_duel.png',
+        codeLink: 'https://github.com/DekalSAE/androidApp',
+        category: 'mobile'
+      },
+      {
+        id: 3,
+        title: t.DEKAL.TITLE,
+        description: t.DEKAL.DESC,
+        detailedDescription: t.DEKAL.DETAILED,
+        features: t.DEKAL.FEATURES,
+        challenges: t.DEKAL.CHALLENGES,
+        tags: ['PHP', 'JavaScript', 'web'],
+        techLogos: ['php', 'javascript'],
+        img: 'logo_dekal.jpg',
+        codeLink: 'https://github.com/DekalSAE/applicationDekal',
+        category: 'web'
+      },
+      {
+        id: 4,
+        title: t.PULSE.TITLE,
+        description: t.PULSE.DESC,
+        detailedDescription: t.PULSE.DETAILED,
+        features: t.PULSE.FEATURES,
+        challenges: t.PULSE.CHALLENGES,
+        tags: ['Angular', 'TypeScript', 'web'],
+        techLogos: ['angular', 'typescript'],
+        img: 'logo_Pulse.png',
+        codeLink: 'https://github.com/PulseSAE/pulse-frontend',
+        category: 'web'
+      }
+    ];
+  });
+
+  selectedProject = computed<Project | null>(() => {
+    const id = this.selectedProjectId();
+    if (!id) return null;
+    return this.projects().find(p => p.id === id) ?? null;
+  });
 
   filteredProjects = computed(() => {
     const filter = this.activeFilter();
     const list = filter === 'all'
-      ? this.projects
-      : this.projects.filter(project =>
+      ? this.projects()
+      : this.projects().filter(project =>
           project.category === filter || project.tags.includes(filter)
         );
     return [...list].reverse();
@@ -120,12 +110,12 @@ export class ProjectsComponent {
   }
 
   openProjectDetails(project: Project): void {
-    this.selectedProject.set(project);
+    this.selectedProjectId.set(project.id);
     document.body.style.overflow = 'hidden';
   }
 
   closeProjectDetails(): void {
-    this.selectedProject.set(null);
+    this.selectedProjectId.set(null);
     document.body.style.overflow = 'auto';
   }
 }

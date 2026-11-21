@@ -114,6 +114,12 @@ footer {
   padding: 0.5rem;
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 @media (max-width: 768px) {
   .header-content {
     flex-wrap: wrap;
@@ -132,7 +138,7 @@ footer {
     order: 2;
   }
 
-  app-theme-selector {
+  .header-actions {
     order: 1;
   }
 
