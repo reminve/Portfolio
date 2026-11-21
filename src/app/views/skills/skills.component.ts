@@ -1,4 +1,4 @@
-import { Component, computed, inject } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Skill } from '../../interfaces/skill';
 import { Certification } from '../../interfaces/certification';
@@ -16,6 +16,24 @@ import { TranslationService } from '../../services/translation.service';
 export class SkillsComponent {
   private readonly translationService = inject(TranslationService);
 
+  openSections = signal<Record<string, boolean>>({
+    frontend: true,
+    backend: true,
+    tools: true,
+    certifications: true
+  });
+
+  toggleSection(section: string): void {
+    this.openSections.update(current => ({
+      ...current,
+      [section]: !current[section]
+    }));
+  }
+
+  isSectionOpen(section: string): boolean {
+    return !!this.openSections()[section];
+  }
+
   frontendSkills: Skill[] = [
     { name: 'Angular', level: 75, iconName: 'code' },
     { name: 'JavaScript', level: 85, iconName: 'code' },
@@ -27,7 +45,7 @@ export class SkillsComponent {
     { name: 'C#', level: 80, iconName: 'server' },
     { name: 'Java', level: 70, iconName: 'server' },
     { name: 'Ruby', level: 65, iconName: 'server' },
-    { name: 'PostGresSQL', level: 90, iconName: 'database' },
+    { name: 'PostGreSQL', level: 90, iconName: 'database' },
     { name: 'SQL Server', level: 75, iconName: 'database' },
     { name: 'MongoDB', level: 50, iconName: 'database' },
     { name: 'Symfony', level: 50, iconName: 'server' },

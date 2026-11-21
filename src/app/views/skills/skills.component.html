@@ -2,75 +2,115 @@
   <h1>{{ 'SKILLS.PAGE_TITLE' | translate }}</h1>
   
   <section class="skill-category">
-    <h2>{{ 'SKILLS.FRONTEND_CATEGORY' | translate }}</h2>
-    <div class="skill-grid">
-      @for (skill of frontendSkills; track skill.name) {
-        <div class="skill-item">
-          <div class="skill-icon">
-            <app-svg-icon [name]="skill.iconName" [size]="30"></app-svg-icon>
-          </div>
-          <div class="skill-info">
-            <h3>{{ skill.name }}</h3>
-            <div class="progress-bar">
-              <div class="progress" [style.width.%]="skill.level"></div>
+    <button 
+      type="button" 
+      class="category-header" 
+      (click)="toggleSection('frontend')" 
+      [attr.aria-expanded]="isSectionOpen('frontend')">
+      <h2>{{ 'SKILLS.FRONTEND_CATEGORY' | translate }}</h2>
+    </button>
+    <div class="collapsible-content" [class.collapsed]="!isSectionOpen('frontend')">
+      <div class="collapsible-inner">
+        <div class="skill-grid">
+          @for (skill of frontendSkills; track skill.name) {
+            <div class="skill-item">
+              <div class="skill-icon">
+                <app-svg-icon [name]="skill.iconName" [size]="30"></app-svg-icon>
+              </div>
+              <div class="skill-info">
+                <h3>{{ skill.name }}</h3>
+                <div class="progress-bar">
+                  <div class="progress" [style.width.%]="skill.level"></div>
+                </div>
+              </div>
             </div>
-          </div>
+          }
         </div>
-      }
+      </div>
     </div>
   </section>
   
   <section class="skill-category">
-    <h2>{{ 'SKILLS.BACKEND_CATEGORY' | translate }}</h2>
-    <div class="skill-grid">
-      @for (skill of backendSkills; track skill.name) {
-        <div class="skill-item">
-          <div class="skill-icon">
-            <app-svg-icon [name]="skill.iconName" [size]="30"></app-svg-icon>
-          </div>
-          <div class="skill-info">
-            <h3>{{ skill.name }}</h3>
-            <div class="progress-bar">
-              <div class="progress" [style.width.%]="skill.level"></div>
+    <button 
+      type="button" 
+      class="category-header" 
+      (click)="toggleSection('backend')" 
+      [attr.aria-expanded]="isSectionOpen('backend')">
+      <h2>{{ 'SKILLS.BACKEND_CATEGORY' | translate }}</h2>
+    </button>
+    <div class="collapsible-content" [class.collapsed]="!isSectionOpen('backend')">
+      <div class="collapsible-inner">
+        <div class="skill-grid">
+          @for (skill of backendSkills; track skill.name) {
+            <div class="skill-item">
+              <div class="skill-icon">
+                <app-svg-icon [name]="skill.iconName" [size]="30"></app-svg-icon>
+              </div>
+              <div class="skill-info">
+                <h3>{{ skill.name }}</h3>
+                <div class="progress-bar">
+                  <div class="progress" [style.width.%]="skill.level"></div>
+                </div>
+              </div>
             </div>
-          </div>
+          }
         </div>
-      }
+      </div>
     </div>
   </section>
   
   <section class="skill-category">
-    <h2>{{ 'SKILLS.TOOLS_CATEGORY' | translate }}</h2>
-    <div class="skill-grid">
-      @for (skill of toolsSkills; track skill.name) {
-        <div class="skill-item">
-          <div class="skill-icon">
-            <app-svg-icon [name]="skill.iconName" [size]="30"></app-svg-icon>
-          </div>
-          <div class="skill-info">
-            <h3>{{ skill.name }}</h3>
-            <div class="progress-bar">
-              <div class="progress" [style.width.%]="skill.level"></div>
+    <button 
+      type="button" 
+      class="category-header" 
+      (click)="toggleSection('tools')" 
+      [attr.aria-expanded]="isSectionOpen('tools')">
+      <h2>{{ 'SKILLS.TOOLS_CATEGORY' | translate }}</h2>
+    </button>
+    <div class="collapsible-content" [class.collapsed]="!isSectionOpen('tools')">
+      <div class="collapsible-inner">
+        <div class="skill-grid">
+          @for (skill of toolsSkills; track skill.name) {
+            <div class="skill-item">
+              <div class="skill-icon">
+                <app-svg-icon [name]="skill.iconName" [size]="30"></app-svg-icon>
+              </div>
+              <div class="skill-info">
+                <h3>{{ skill.name }}</h3>
+                <div class="progress-bar">
+                  <div class="progress" [style.width.%]="skill.level"></div>
+                </div>
+              </div>
             </div>
-          </div>
+          }
         </div>
-      }
+      </div>
     </div>
   </section>
   
   <section class="certifications">
-    <h2>{{ 'SKILLS.CERTIFICATIONS_CATEGORY' | translate }}</h2>
-    <div class="cert-grid">
-      @for (cert of certifications(); track cert.name) {
-        <div class="cert-item">
-          <div class="cert-logo"><i [class]="cert.icon"></i></div>
-          <div class="cert-content">
-            <h3>{{ cert.name }}</h3>
-            <p class="cert-issuer">{{ cert.issuer }}</p>
-            <p class="cert-date">{{ cert.date }}</p>
-          </div>
+    <button 
+      type="button" 
+      class="category-header" 
+      (click)="toggleSection('certifications')" 
+      [attr.aria-expanded]="isSectionOpen('certifications')">
+      <h2>{{ 'SKILLS.CERTIFICATIONS_CATEGORY' | translate }}</h2>
+    </button>
+    <div class="collapsible-content" [class.collapsed]="!isSectionOpen('certifications')">
+      <div class="collapsible-inner">
+        <div class="cert-grid">
+          @for (cert of certifications(); track cert.name) {
+            <div class="cert-item">
+              <div class="cert-logo"><i [class]="cert.icon"></i></div>
+              <div class="cert-content">
+                <h3>{{ cert.name }}</h3>
+                <p class="cert-issuer">{{ cert.issuer }}</p>
+                <p class="cert-date">{{ cert.date }}</p>
+              </div>
+            </div>
+          }
         </div>
-      }
+      </div>
     </div>
   </section>
 </div>
