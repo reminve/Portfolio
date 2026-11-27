@@ -7,7 +7,7 @@ export const fr: TranslationSchema = {
     LANG_FR: 'Français',
     LANG_EN: 'English',
     CLOSE: 'Fermer',
-    FOOTER_COPYRIGHT: 'Neveu Rémi',
+    FOOTER_COPYRIGHT: 'Rémi Neveu',
     EXTERNAL_LINK: 'Lien externe'
   },
   NAV: {
